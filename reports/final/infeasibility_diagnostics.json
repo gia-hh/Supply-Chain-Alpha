@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "scope": {
+    "data_access": "EXISTING_FORMAL_ARTIFACTS_ONLY",
+    "external_downloads": false,
+    "causal_claims": false,
+    "research_conclusion": "INFEASIBLE_DATA",
+    "strategy_evidence": "NOT_EVALUATED",
+    "terminal_path": "PATH_B_DATA_INFEASIBILITY"
+  },
+  "input_sha256": {
+    "reports/final/results_summary.json": "73b008f76424584d01a0ca48c1ff1d6c29a6d29efe24a27fd596de6109e96cd9",
+    "reports/phase3_coverage/degree_diagnostics.csv": "01ec28589e00f0af82b08eb05bd01d037c924b7a626da91b1e9ee2a43598345c",
+    "reports/phase3_coverage/edge_age_distribution.csv": "13513dbe9c25ba0ddbc9cf20ce666c0d9cda34dc04d1a814fa9ac16728edde96",
+    "reports/phase3_coverage/industry_diagnostics.csv": "384d0934117aa631617b9a57f4562d216e1748863b530e86d23c47cea0759e48",
+    "reports/phase3_coverage/node_roles.csv": "fa4ec0c96f5b747d289cab7dc9ef173d58d0ac693d51a8ebe2ac0da935aae67d",
+    "reports/phase3_coverage/resolution_audit.csv": "c24b680df7750a7ecb928959d8d2e128bb7b5be3b903f0c0a74bb9207f0d2cf8",
+    "reports/phase3_coverage/source_document_diagnostics.csv": "3398528e86d23232959a0e1095159ffd655a881e07e8ebc06c376abba85bd830",
+    "reports/phase3_coverage/summary.json": "070109db3e05a3c3d36fc9f0a8405d95a33c2e928709fc155f16230bae536c98",
+    "reports/phase3_coverage/supply_chain_edge.csv": "068139705e71c30827366a363ded18fbc248eca5843135d3ad76aa9c4578df2c",
+    "reports/phase3_coverage/yearly_coverage.csv": "169c87a51ba76f7a30f35e40ffbb2291e291bc7eabf175caca03424d0816f238",
+    "reports/phase3_coverage/yearly_disclosures.csv": "ce08ca492e4060487e1a94ba687cea3dc1792f5a49837e53e208d552d8957619",
+    "reports/status/phase_2.json": "ea8b4fd18ed686f1e7eb424743fbc925656dcfcf4b6c91b0edf1ad50b1cde644"
+  },
+  "methods": {
+    "proportion_interval": {
+      "name": "Wilson score interval",
+      "confidence_level": 0.95,
+      "z": 1.959963984540054,
+      "formula": "center=(p+z^2/(2n))/(1+z^2/n); half_width=z*sqrt(p(1-p)/n+z^2/(4n^2))/(1+z^2/n)"
+    },
+    "annual_trend": {
+      "effect_size": "Kendall tau-b",
+      "slope": "Theil-Sen median pairwise slope",
+      "p_value": "exact two-sided permutation of all annual value assignments",
+      "multiplicity_adjustment": "Holm family-wise adjustment across five reported trend tests",
+      "limitation": "Annual observations are few and may be serially dependent; p-values are exploratory, not confirmatory."
+    },
+    "network": {
+      "connectivity": "weakly connected components of the undirected projection of unique directed supplier-customer pairs",
+      "hhi": "sum of squared degree shares",
+      "effective_count": "1 / HHI",
+      "gini": "relative mean absolute dispersion over nonnegative observations"
+    }
+  },
+  "formal_gate": {
+    "integrity_passed": true,
+    "coverage_passed": false,
+    "evaluation_years": [2016, 2017, 2018, 2019, 2020, 2021, 2022],
+    "thresholds": {
+      "min_year_end_active_directed_edges": 200,
+      "min_year_end_connected_stocks": 150,
+      "min_consecutive_calendar_years": 3,
+      "min_median_connected_stocks_across_usable_years": 200,
+      "edge_max_age_days": 550
+    },
+    "actual": {
+      "usable_years": [],
+      "consecutive_usable_years": 0,
+      "median_connected_stocks_across_usable_years": null,
+      "pit_industry_checks": "DEFERRED_PIT_INDUSTRY_UNAVAILABLE"
+    },
+    "threshold_gap_summary": {
+      "usable_year_count": 0,
+      "required_consecutive_year_count": 3,
+      "best_active_edge_year": 2022,
+      "best_active_edge_count": 116,
+      "best_active_edge_shortfall": 84,
+      "best_active_edge_attainment": 0.58,
+      "growth_from_best_observation_needed_to_threshold": 0.7241379310344828,
+      "all_year_median_active_edges": 86,
+      "all_year_median_connected_stocks": 136,
+      "counterfactual_all_year_median_stock_gap_to_usable_year_median_threshold": 64
+    }
+  },
+  "annual_coverage": [
+    {"year": 2016, "active_edges": 90, "connected_stocks": 143, "edge_shortfall": 110, "stock_shortfall": 7, "usable": false},
+    {"year": 2017, "active_edges": 74, "connected_stocks": 117, "edge_shortfall": 126, "stock_shortfall": 33, "usable": false},
+    {"year": 2018, "active_edges": 90, "connected_stocks": 146, "edge_shortfall": 110, "stock_shortfall": 4, "usable": false},
+    {"year": 2019, "active_edges": 86, "connected_stocks": 136, "edge_shortfall": 114, "stock_shortfall": 14, "usable": false},
+    {"year": 2020, "active_edges": 76, "connected_stocks": 122, "edge_shortfall": 124, "stock_shortfall": 28, "usable": false},
+    {"year": 2021, "active_edges": 62, "connected_stocks": 105, "edge_shortfall": 138, "stock_shortfall": 45, "usable": false},
+    {"year": 2022, "active_edges": 116, "connected_stocks": 179, "edge_shortfall": 84, "stock_shortfall": 0, "usable": false}
+  ],
+  "disclosure_funnel": {
+    "documents": {
+      "audited": 30126,
+      "extraction_success": 30103,
+      "no_text": 23,
+      "listed_edge_supporting_documents": 560
+    },
+    "mentions": {
+      "all_relationship_mentions": 171041,
+      "explicit_name_mentions": 37030,
+      "resolved_listed_mentions": 690,
+      "edge_evidence_rows": 668,
+      "unique_listed_to_listed_pairs": 386
+    },
+    "wilson_95": {
+      "pdf_extraction_success": {"successes": 30103, "trials": 30126, "estimate": 0.9992365398658966, "lower": 0.9988545872424365, "upper": 0.999491190351886},
+      "explicit_name_per_relationship_mention": {"successes": 37030, "trials": 171041, "estimate": 0.2164977987733935, "lower": 0.21455233464951856, "upper": 0.21845599712558306},
+      "listed_resolution_given_explicit_name": {"successes": 690, "trials": 37030, "estimate": 0.018633540372670808, "lower": 0.01730531935936272, "upper": 0.02006162407153788},
+      "listed_resolution_per_relationship_mention": {"successes": 690, "trials": 171041, "estimate": 0.004034120474038389, "lower": 0.0037446598488748515, "upper": 0.004345858678419384},
+      "listed_edge_supporting_document_per_audited_document": {"successes": 560, "trials": 30126, "estimate": 0.018588594569474873, "lower": 0.017123637774108615, "upper": 0.020176308206579008}
+    },
+    "unit_note": "Phase-2 named/resolved metrics count deduplicated resolution-audit keys; Phase-3 rates count mention rows after attaching that audit. The gate uses the Phase-3 mention-row quantities reported here."
+  },
+  "annual_trends": {
+    "relationship_mentions": {"n_years": 8, "kendall_s": 28, "kendall_tau_b": 1.0, "theil_sen_slope_per_year": 2075.75, "exact_two_sided_p": 0.0000496031746031746, "holm_adjusted_p": 0.000248015873015873},
+    "explicit_name_rate": {"n_years": 8, "kendall_s": -26, "kendall_tau_b": -0.9285714285714286, "theil_sen_slope_per_year": -0.03403965526399695, "exact_two_sided_p": 0.0003968253968253968, "holm_adjusted_p": 0.0015873015873015873},
+    "listed_resolution_rate_given_explicit": {"n_years": 8, "kendall_s": 20, "kendall_tau_b": 0.7142857142857143, "theil_sen_slope_per_year": 0.0012311886127147607, "exact_two_sided_p": 0.014136904761904762, "holm_adjusted_p": 0.04241071428571429},
+    "year_end_active_edges": {"n_years": 7, "kendall_s": -2, "kendall_tau_b": -0.09759000729485333, "theil_sen_slope_per_year": -1.3333333333333333, "exact_two_sided_p": 0.8841269841269841, "holm_adjusted_p": 1.0},
+    "year_end_connected_stocks": {"n_years": 7, "kendall_s": -1, "kendall_tau_b": -0.047619047619047616, "theil_sen_slope_per_year": -2.3333333333333335, "exact_two_sided_p": 1.0, "holm_adjusted_p": 1.0}
+  },
+  "graph_structure": {
+    "connected_nodes": 487,
+    "unique_directed_pairs": 386,
+    "weak_components": 129,
+    "largest_component_nodes": 66,
+    "median_component_nodes": 2.0,
+    "two_node_components": 89,
+    "largest_components_nodes": [66, 31, 28, 19, 16, 16, 8, 6, 5, 5],
+    "supplier_only_nodes": 209,
+    "customer_only_nodes": 211,
+    "both_role_nodes": 67,
+    "degree_one_nodes": 333,
+    "degree_one_share": 0.6837782340862423,
+    "total_degree": {
+      "sum": 772,
+      "mean": 1.5852156057494866,
+      "median": 1.0,
+      "p90": 3.0,
+      "p95": 4.0,
+      "p99": 6.139999999999986,
+      "max": 11,
+      "gini": 0.29104914300305346,
+      "hhi": 0.003201428226261108,
+      "effective_node_count": 312.3605870020964,
+      "top_10_node_share": 0.09196891191709844
+    },
+    "evidence_depth": {
+      "edge_evidence_rows": 668,
+      "median_evidence_rows_per_pair": 1.0,
+      "max_evidence_rows_per_pair": 9,
+      "pairs_with_one_evidence_row": 249,
+      "pairs_with_one_evidence_share": 0.6450777202072538,
+      "pairs_with_multiple_evidence_rows": 137,
+      "supporting_documents": 560,
+      "documents_with_one_edge_evidence_row": 466,
+      "documents_with_two_edge_evidence_rows": 80,
+      "documents_with_three_edge_evidence_rows": 14
+    },
+    "latest_effective_start_snapshot_edge_age": {
+      "as_of_definition": "maximum effective_start among listed edge evidence rows",
+      "total_active_edges": 150,
+      "age_0_to_90_days": 116,
+      "age_91_to_180_days": 0,
+      "age_181_to_365_days": 0,
+      "age_366_days_or_more": 34
+    },
+    "industry_distribution": "NOT_ESTIMABLE_PIT_INDUSTRY_UNAVAILABLE"
+  },
+  "diagnosis": {
+    "primary_constraint": "The official-report projection from disclosed relationships to listed-to-listed entities is too sparse and fragmented to meet the frozen longitudinal graph thresholds.",
+    "not_primary_constraint": "PDF extraction failure",
+    "evidence": [
+      "Extraction succeeded for 99.9237% of audited documents, while only 21.6498% of relationship mentions contained an explicit name.",
+      "Only 1.8634% of explicit-name mention rows resolved to a listed entity; the end-to-end listed-resolution share was 0.4034% of all relationship mentions.",
+      "No year reached 200 active directed edges; the best year had 116, leaving a gap of 84.",
+      "Mention volume rose strongly and explicit-name share fell strongly, while active-edge and connected-stock trends were statistically indistinguishable from no monotonic trend in this small annual sample.",
+      "The graph has 129 weak components; 89 contain only two nodes, and 68.38% of connected nodes have total degree one."
+    ],
+    "inference_boundary": "These are descriptive and associational diagnostics of observability and coverage. They neither identify the causes of disclosure behavior nor test the return-predictability hypothesis."
+  }
+}

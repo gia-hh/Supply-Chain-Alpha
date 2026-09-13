@@ -50,3 +50,18 @@ copy volatile run counts or conclusions. The authoritative current result is in:
 
 Run `python scripts/validate_all.py` to independently verify the current artifacts,
 hashes, statuses, tests, and permitted terminal path.
+
+## Post-run diagnosis and handoff
+
+The frozen Path-B result is supplemented by post-run interpretation artifacts that
+do not alter any phase status, threshold, or canonical result:
+
+- `reports/final/INFEASIBILITY_DIAGNOSIS_ZH.md`: statistical diagnosis plus
+  macroeconomic and microeconomic interpretation;
+- `reports/final/infeasibility_diagnostics.json`: machine-readable statistics,
+  methods, limitations, and hashes of every frozen input;
+- `reports/final/IMPLEMENTATION_RECORD_ZH.md`: implementation scope, validation,
+  provenance, and truthful Git-history notes.
+
+These artifacts use only existing formal outputs. They do not download additional
+data or read returns, signals, portfolios, or holdout results.
