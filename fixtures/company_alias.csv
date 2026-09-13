@@ -1,0 +1,6 @@
+entity_id,canonical_name,alias,alias_type,valid_from,valid_to,source
+S1,华东材料股份有限公司,华东材料,short_name,2010-01-01,,fixture
+S2,华东电池股份有限公司,华东电池,short_name,2011-01-01,,fixture
+S3,华南汽车股份有限公司,华南汽车,short_name,2012-01-01,,fixture
+S4,东方设备股份有限公司,东方设备,short_name,2012-06-01,,fixture
+S5,新科电子股份有限公司,新科电子,short_name,2015-01-01,,fixture

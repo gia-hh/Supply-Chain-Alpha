@@ -1,0 +1,6 @@
+source_company_id,counterparty_raw_name,relationship_type,source_period_end,publication_datetime,source_document_id,source_document_url_or_path,evidence_text,exposure_value,exposure_share
+S1,华东电池股份有限公司,customer,2019-12-31,2020-04-15 18:00:00,D1,fixture://D1,客户名称：华东电池股份有限公司,100000000,0.20
+S2,华南汽车,customer,2019-12-31,2020-04-20 18:00:00,D2,fixture://D2,主要客户：华南汽车,200000000,0.30
+S2,东方设备,supplier,2019-12-31,2020-04-20 18:00:00,D2,fixture://D2,主要供应商：东方设备,50000000,0.10
+S3,供应商A,supplier,2019-12-31,2020-04-25 18:00:00,D3,fixture://D3,供应商名称：供应商A,30000000,0.05
+S4,不存在公司,customer,2019-12-31,2020-04-28 18:00:00,D4,fixture://D4,客户名称：不存在公司,,

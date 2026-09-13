@@ -1,0 +1,12 @@
+# Large immutable inputs and non-canonical run history stay outside Git.
+data/raw/
+reports/history/
+reports/trials/
+build/
+dist/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.pyc
+*.pyo

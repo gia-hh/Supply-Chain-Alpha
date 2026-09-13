@@ -1,0 +1,22 @@
+version: 1
+trading_start: 2020-01-02
+trading_days: 160
+security_count: 12
+directed_named_relationships: 6
+random_seed: 42
+suspension:
+  security_id: T03
+  day_index: 50
+price_limit_lock:
+  security_id: T04
+  day_index: 60
+corporate_action:
+  security_id: T06
+  day_index: 80
+  share_multiplier: 2.0
+future_listing:
+  security_id: T12
+  listing_date: 2020-05-21
+rename:
+  security_id: T05
+  effective_date: 2020-04-01

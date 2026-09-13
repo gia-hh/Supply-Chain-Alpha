@@ -1,0 +1,53 @@
+version: 1
+currency: CNY
+
+settlement:
+  - valid_from: 2015-01-01
+    valid_to: 2025-12-31
+    security_scope: A_SHARE
+    purchased_shares_sellable_from_trading_day_offset: 1
+    source_note: A-share cash-equity T+1 sell restriction; validate against exchange rule version used by the production market adapter.
+
+price_limits:
+  - valid_from: 2015-01-01
+    valid_to: 2025-12-31
+    board: MAIN
+    ordinary_pct: 0.10
+    st_pct: 0.05
+    source_note: Historical SSE/SZSE main-board daily price-limit rules; first-listing and relisting exceptions require source flags.
+  - valid_from: 2019-07-22
+    valid_to: 2025-12-31
+    board: STAR
+    ordinary_pct: 0.20
+    ipo_no_limit_trading_days: 5
+    source_url: https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20190719_4866745.shtml
+  - valid_from: 2015-01-01
+    valid_to: 2020-08-23
+    board: CHINEXT
+    ordinary_pct: 0.10
+    source_note: Pre-registration-based ChiNext rule interval.
+  - valid_from: 2020-08-24
+    valid_to: 2025-12-31
+    board: CHINEXT
+    ordinary_pct: 0.20
+    ipo_no_limit_trading_days: 5
+    source_url: https://www.szse.cn/aboutus/trends/conference/t20200821_580925.html
+
+taxes_and_fees:
+  - valid_from: 2015-01-01
+    valid_to: 2023-08-27
+    name: securities_transaction_stamp_tax
+    buy_rate: 0.0
+    sell_rate: 0.001
+    source_note: Pre-2023-08-28 unilateral A-share stamp-tax rate.
+  - valid_from: 2023-08-28
+    valid_to: 2025-12-31
+    name: securities_transaction_stamp_tax
+    buy_rate: 0.0
+    sell_rate: 0.0005
+    source_url: https://www.sse.com.cn/aboutus/mediacenter/hotandd/c/c_20230827_5725662.shtml
+
+assumptions:
+  commission_bps_per_side: 3
+  slippage_bps_per_side: [5, 10, 20]
+  note: Broker commission and slippage are explicit research assumptions, not statutory rates.

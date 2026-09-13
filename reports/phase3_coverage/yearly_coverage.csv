@@ -1,0 +1,8 @@
+year,year_end_active_edges,year_end_connected_stocks,supplier_node_count,customer_node_count,median_edge_age_days
+2016,90,143,79,73,262.0
+2017,74,117,61,64,258.0
+2018,90,146,74,81,257.0
+2019,86,136,69,77,256.0
+2020,76,122,63,67,252.0
+2021,62,105,55,56,254.0
+2022,116,179,104,98,256.5

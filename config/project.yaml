@@ -1,0 +1,183 @@
+project:
+  name: supply_chain_information_diffusion_cn_equities
+  version: 2.0
+  spec_version: 2.0
+  random_state: 42
+  market: CN_A_SHARE
+
+periods:
+  raw_start: 2015-01-01
+  warmup_end: 2015-12-31
+  development_start: 2016-01-01
+  development_end: 2020-12-31
+  validation_start: 2021-01-01
+  validation_end: 2022-12-31
+  holdout_start: 2023-01-01
+  holdout_end: 2025-12-31
+
+paths:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+  reports_dir: reports
+  security_master: data/processed/security_master.parquet
+  company_alias: data/processed/company_alias.parquet
+  disclosure_raw: data/processed/disclosure_raw.parquet
+  resolution_audit: data/processed/resolution_audit.parquet
+  supply_chain_edge: data/processed/supply_chain_edge.parquet
+  equity_daily: data/processed/equity_daily.parquet
+  returns_daily: data/processed/returns_daily.parquet
+  signal_daily: data/processed/signal_daily.parquet
+  raw_manifest: data/raw/MANIFEST.json
+  source_tree_manifest: reports/source_tree_manifest.json
+  status_dir: reports/status
+  experiment_registry: reports/experiment_registry.csv
+  research_freeze: reports/research_freeze.json
+
+data_sources:
+  security_master:
+    primary: official_exchange_endpoints
+    sse_url: https://query.sse.com.cn/sseQuery/commonQuery.do
+    szse_url: https://www.szse.cn/api/report/ShowReport
+    source_note: SSE and SZSE official listed/delisted security catalogues
+  disclosures:
+    primary: cninfo
+    query_url: https://www.cninfo.com.cn/new/hisAnnouncement/query
+    download_base_url: https://static.cninfo.com.cn/
+    stock_map_url: https://www.cninfo.com.cn/new/data/szse_stock.json
+    category: category_ndbg_szsh
+    download_workers: 4
+    source_note: CNINFO official listed-company disclosure archive
+  request_policy:
+    user_agent: supply-chain-alpha-research/0.2
+    timeout_seconds: 30
+    max_attempts: 4
+    backoff_seconds: 2.0
+    min_interval_seconds: 0.75
+
+information_timing:
+  signal_time: close
+  signal_cutoff_local: "15:00:00"
+  timezone: Asia/Shanghai
+  publication_timestamp_required: true
+  backdate_to_fiscal_period_allowed: false
+  edge_max_age_days: 550
+
+entity_resolution:
+  anonymous_labels_blocked: true
+  fuzzy_matching_enabled: true
+  fuzzy_min_score: 94.0
+  fuzzy_min_margin: 4.0
+  manual_override_file: config/entity_overrides.csv
+
+edge_weighting:
+  primary: equal
+  robustness: interpretable_target_exposure_only
+  infer_missing_share_from_rank: false
+
+graph_coverage_gate:
+  evaluation_start: 2016-01-01
+  evaluation_end: 2022-12-31
+  min_consecutive_calendar_years: 3
+  min_year_end_active_directed_edges: 200
+  min_year_end_connected_stocks: 150
+  min_median_connected_stocks_across_usable_years: 200
+  min_industries_if_pit_available: 5
+  max_largest_industry_edge_share_if_pit_available: 0.60
+  max_timing_violations: 0
+  max_anonymous_resolved_nodes: 0
+  max_duplicate_pair_date_exposures: 0
+  max_missing_source_provenance: 0
+
+market_panel:
+  minimum_graph_security_day_coverage: 0.95
+  minimum_trading_day_fraction: 0.90
+  minimum_daily_security_coverage: 0.90
+  market_rules_file: config/market_rules.yaml
+  forward_or_backward_fill_prices: false
+
+residual_returns:
+  preferred_model: market_plus_pit_industry
+  fallback_model: market_only
+  beta_window_trading_days: 252
+  minimum_beta_observations: 126
+  beta_information_lag_days: 1
+  leave_one_out_industry_factor: true
+  min_eligible_target_coverage: 0.90
+  min_finite_fraction: 0.999
+  max_median_abs_market_correlation: 0.15
+
+signals:
+  primary_direction: customer_to_supplier
+  secondary_direction: supplier_to_customer
+  primary_weighting: equal
+  forward_horizons_trading_days: [1, 3, 5, 10]
+  primary_horizon_trading_days: 1
+  minimum_daily_target_median: 100
+  minimum_daily_target_q25: 50
+  missing_neighbor_policy: exclude
+
+evaluation:
+  quantiles: 5
+  newey_west_lags: 5
+  bootstrap:
+    method: moving_block
+    replications: 2000
+    block_length_trading_days: 20
+    seed: 42001
+  matched_random_placebo:
+    count: 500
+    first_seed: 43000
+  controls:
+    - target_residual_return_t
+    - target_residual_momentum_5d
+    - size_if_pit_available
+    - liquidity
+    - volatility
+    - graph_degree
+    - edge_age
+  portfolio_promotion:
+    development_mean_rank_ic_min_exclusive: 0.0
+    validation_mean_rank_ic_min_exclusive: 0.0
+    validation_q5_minus_q1_min_exclusive: 0.0
+    validation_bootstrap_one_sided_p_max_exclusive: 0.10
+    random_placebo_percentile_to_beat: 0.95
+
+portfolio:
+  construction: long_top_quantile_short_bottom_quantile
+  execution_price: next_trading_day_open
+  holding_rule: one_trading_day_subject_to_t_plus_one
+  enforce_t_plus_one: true
+  reject_suspended: true
+  reject_price_limit_locked: true
+  single_name_max_abs_weight: 0.02
+  gross_exposure: 1.0
+  target_net_exposure: 0.0
+  slippage_bps_per_side: [5, 10, 20]
+  baseline_slippage_bps_per_side: 10
+  commission_bps_per_side: 3
+  minimum_liquidity_amount_cny: 10000000
+  strategy_promotion:
+    validation_net_cumulative_return_min_exclusive: 0.0
+    require_break_even_cost_above_baseline: true
+    max_abs_persistent_market_beta: 0.10
+
+holdout:
+  access_requires_freeze: true
+  identical_hash_rerun_only: true
+  practically_meaningful_abs_ic: 0.005
+
+engineering:
+  raw_data_immutable: true
+  canonical_format: parquet
+  primary_key_duplicates: error
+  silent_imputation_allowed: false
+  random_seed_required: true
+  production_data_must_not_be_synthetic: true
+  allowed_phase_states: [PASS, FAIL, BLOCKED, SKIPPED_BY_DESIGN]
+  exit_codes:
+    success: 0
+    engineering_failure: 1
+    external_data_blocker: 2
+    research_gate_failure: 3
+    holdout_integrity_violation: 4

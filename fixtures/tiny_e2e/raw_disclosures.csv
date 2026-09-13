@@ -1,0 +1,9 @@
+source_company_id,relationship_type,source_period_end,publication_datetime,source_document_id,source_document_url_or_path,raw_text,exposure_value,exposure_share
+T01,customer,2019-12-31,2020-01-15T18:00:00+08:00,D01,fixture://tiny/D01,主要客户：测试公司二股份有限公司,1000000,0.20
+T03,supplier,2019-12-31,2020-01-16T18:00:00+08:00,D02,fixture://tiny/D02,主要供应商：测试公司四股份有限公司,800000,0.15
+T05,customer,2019-12-31,2020-01-17T18:00:00+08:00,D03,fixture://tiny/D03,客户名称：测试公司六股份有限公司,700000,0.12
+T07,supplier,2019-12-31,2020-01-20T18:00:00+08:00,D04,fixture://tiny/D04,供应商名称：测试公司八股份有限公司,600000,0.10
+T09,customer,2019-12-31,2020-01-21T18:00:00+08:00,D05,fixture://tiny/D05,主要客户：测试公司十股份有限公司,500000,0.08
+T11,customer,2019-12-31,2020-02-10T18:00:00+08:00,D06,fixture://tiny/D06,客户名称：测试旧五股份有限公司,400000,0.06
+T02,supplier,2019-12-31,2020-02-11T18:00:00+08:00,D07,fixture://tiny/D07,主要供应商：供应商A,300000,0.05
+T01,customer,2019-12-31,2020-02-12T18:00:00+08:00,D08,fixture://tiny/D08,主要客户：测试公司十二股份有限公司,200000,0.04

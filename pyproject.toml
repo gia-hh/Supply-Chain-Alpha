@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supply-chain-alpha"
+version = "0.2.0"
+description = "Point-in-time supply-chain information diffusion research for Chinese equities"
+requires-python = ">=3.10"
+dependencies = [
+  "jsonschema>=4.20",
+  "numpy>=1.24,<3.0",
+  "openpyxl>=3.1",
+  "pandas>=2.0,<3.0",
+  "pypdf>=5.0",
+  "pypdfium2>=5.13,<6.0",
+  "PyYAML>=6.0",
+  "rapidfuzz>=3.0",
+  "requests>=2.31",
+  "pyarrow>=14.0"
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"

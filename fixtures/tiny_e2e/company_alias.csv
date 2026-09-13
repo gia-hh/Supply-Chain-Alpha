@@ -1,0 +1,14 @@
+entity_id,canonical_name,alias,alias_type,valid_from,valid_to,source
+T01,测试公司一股份有限公司,测试公司一股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T02,测试公司二股份有限公司,测试公司二股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T03,测试公司三股份有限公司,测试公司三股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T04,测试公司四股份有限公司,测试公司四股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T05,测试公司五股份有限公司,测试旧五股份有限公司,legal_name_history,2019-01-01,2020-04-01,tiny_fixture
+T05,测试公司五股份有限公司,测试公司五股份有限公司,legal_name,2020-04-01,,tiny_fixture
+T06,测试公司六股份有限公司,测试公司六股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T07,测试公司七股份有限公司,测试公司七股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T08,测试公司八股份有限公司,测试公司八股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T09,测试公司九股份有限公司,测试公司九股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T10,测试公司十股份有限公司,测试公司十股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T11,测试公司十一股份有限公司,测试公司十一股份有限公司,legal_name,2019-01-01,,tiny_fixture
+T12,测试公司十二股份有限公司,测试公司十二股份有限公司,legal_name,2020-05-21,,tiny_fixture

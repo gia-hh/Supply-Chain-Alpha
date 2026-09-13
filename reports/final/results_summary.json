@@ -1,0 +1,370 @@
+{
+  "artifact_hashes": {
+    "data/processed/disclosure_raw.parquet": "9051a60b6644b218234924f2616d83292c6d3cd1b9e3843b3d90d1dc959bdfbe",
+    "data/processed/resolution_audit.parquet": "a1664e03fbcab38c284f522675e419a508c6c70ad936505d79cebe922a6d9248",
+    "data/processed/security_master.parquet": "74846d4c7b6b98c3309f621bbdbf8ab02a20a71a6c1265c9ade3dc8c8765c3a0",
+    "data/processed/supply_chain_edge.parquet": "718ceba06959ac9be7db356c484ae9e3a19e0a36a835ef99d15a48e5524d0762",
+    "data/raw/MANIFEST.json": "58eef36092ee560e2b7b23ea3226482cfb7793e8368763ce93f8d6eab7c61132",
+    "reports/final/FEASIBILITY_REPORT.md": "8f43f361f5775d29b1b1fdd33592f9506b7e705726801f7bb725d4c13ebf2d55",
+    "reports/phase3_coverage/degree_diagnostics.csv": "01ec28589e00f0af82b08eb05bd01d037c924b7a626da91b1e9ee2a43598345c",
+    "reports/phase3_coverage/edge_age_distribution.csv": "13513dbe9c25ba0ddbc9cf20ce666c0d9cda34dc04d1a814fa9ac16728edde96",
+    "reports/phase3_coverage/industry_diagnostics.csv": "384d0934117aa631617b9a57f4562d216e1748863b530e86d23c47cea0759e48",
+    "reports/phase3_coverage/node_roles.csv": "fa4ec0c96f5b747d289cab7dc9ef173d58d0ac693d51a8ebe2ac0da935aae67d",
+    "reports/phase3_coverage/resolution_audit.csv": "c24b680df7750a7ecb928959d8d2e128bb7b5be3b903f0c0a74bb9207f0d2cf8",
+    "reports/phase3_coverage/source_document_diagnostics.csv": "3398528e86d23232959a0e1095159ffd655a881e07e8ebc06c376abba85bd830",
+    "reports/phase3_coverage/summary.json": "070109db3e05a3c3d36fc9f0a8405d95a33c2e928709fc155f16230bae536c98",
+    "reports/phase3_coverage/supply_chain_edge.csv": "068139705e71c30827366a363ded18fbc248eca5843135d3ad76aa9c4578df2c",
+    "reports/phase3_coverage/yearly_coverage.csv": "169c87a51ba76f7a30f35e40ffbb2291e291bc7eabf175caca03424d0816f238",
+    "reports/phase3_coverage/yearly_disclosures.csv": "ce08ca492e4060487e1a94ba687cea3dc1792f5a49837e53e208d552d8957619"
+  },
+  "coverage": {
+    "customer_nodes": 278,
+    "explicit_name_mentions": 37030,
+    "explicit_name_rate": 0.2164977987733935,
+    "first_publication": "2015-01-15T16:00:00+00:00",
+    "last_publication": "2022-12-30T16:00:00+00:00",
+    "listed_to_listed_edges": 386,
+    "mentions": 171041,
+    "resolution_rate_given_explicit": 0.018633540372670808,
+    "resolved_mentions": 690,
+    "source_documents": 560,
+    "supplier_nodes": 276,
+    "unique_connected_stocks": 487
+  },
+  "last_completed_empirical_gate": 3,
+  "phase3_gate": {
+    "checks": {
+      "anonymous_resolved_nodes": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      },
+      "consecutive_usable_years": {
+        "actual": 0,
+        "operator": ">=",
+        "passed": false,
+        "threshold": 3
+      },
+      "duplicate_pair_date_exposures": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      },
+      "edge_max_age_violations": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "invalid_counterparty_mentions": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "invalid_resolution_audit_names": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "missing_listing_dates_on_edge_endpoints": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "missing_security_master_endpoints": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "missing_source_provenance_on_active_edges": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      },
+      "pit_industry_ambiguous_active_nodes": {
+        "actual": null,
+        "deferred": true,
+        "operator": "==",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 0
+      },
+      "pit_industry_count": {
+        "actual": null,
+        "deferred": true,
+        "operator": ">=",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 5
+      },
+      "pit_industry_unclassified_active_endpoints": {
+        "actual": null,
+        "deferred": true,
+        "operator": "==",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 0
+      },
+      "pit_largest_industry_share": {
+        "actual": null,
+        "deferred": true,
+        "operator": "<=",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 0.6
+      },
+      "resolution_status_classification_mismatches": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "timing_violations": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      },
+      "usable_years_median_connected_stocks": {
+        "actual": null,
+        "operator": ">=",
+        "passed": false,
+        "threshold": 200
+      }
+    },
+    "coverage_checks": {
+      "consecutive_usable_years": {
+        "actual": 0,
+        "operator": ">=",
+        "passed": false,
+        "threshold": 3
+      },
+      "pit_industry_count": {
+        "actual": null,
+        "deferred": true,
+        "operator": ">=",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 5
+      },
+      "pit_largest_industry_share": {
+        "actual": null,
+        "deferred": true,
+        "operator": "<=",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 0.6
+      },
+      "usable_years_median_connected_stocks": {
+        "actual": null,
+        "operator": ">=",
+        "passed": false,
+        "threshold": 200
+      }
+    },
+    "coverage_passed": false,
+    "diagnostics": {
+      "development_validation_node_roles": {
+        "both_role_node_count": 67,
+        "connected_node_count": 485,
+        "customer_node_count": 277,
+        "supplier_node_count": 275
+      },
+      "latest_usable_year_node_roles": {
+        "both_role_node_count": 0,
+        "connected_node_count": 0,
+        "customer_node_count": 0,
+        "supplier_node_count": 0
+      },
+      "pit_industry_by_usable_year": [],
+      "pit_industry_integrity_by_active_year": [],
+      "source_documents": {
+        "artifact": "source_document_diagnostics.csv",
+        "row_count": 19185
+      },
+      "yearly_coverage": [
+        {
+          "customer_node_count": 73,
+          "median_edge_age_days": 262.0,
+          "supplier_node_count": 79,
+          "year": 2016,
+          "year_end_active_edges": 90,
+          "year_end_connected_stocks": 143
+        },
+        {
+          "customer_node_count": 64,
+          "median_edge_age_days": 258.0,
+          "supplier_node_count": 61,
+          "year": 2017,
+          "year_end_active_edges": 74,
+          "year_end_connected_stocks": 117
+        },
+        {
+          "customer_node_count": 81,
+          "median_edge_age_days": 257.0,
+          "supplier_node_count": 74,
+          "year": 2018,
+          "year_end_active_edges": 90,
+          "year_end_connected_stocks": 146
+        },
+        {
+          "customer_node_count": 77,
+          "median_edge_age_days": 256.0,
+          "supplier_node_count": 69,
+          "year": 2019,
+          "year_end_active_edges": 86,
+          "year_end_connected_stocks": 136
+        },
+        {
+          "customer_node_count": 67,
+          "median_edge_age_days": 252.0,
+          "supplier_node_count": 63,
+          "year": 2020,
+          "year_end_active_edges": 76,
+          "year_end_connected_stocks": 122
+        },
+        {
+          "customer_node_count": 56,
+          "median_edge_age_days": 254.0,
+          "supplier_node_count": 55,
+          "year": 2021,
+          "year_end_active_edges": 62,
+          "year_end_connected_stocks": 105
+        },
+        {
+          "customer_node_count": 98,
+          "median_edge_age_days": 256.5,
+          "supplier_node_count": 104,
+          "year": 2022,
+          "year_end_active_edges": 116,
+          "year_end_connected_stocks": 179
+        }
+      ]
+    },
+    "failure_class": "COVERAGE_INFEASIBLE",
+    "frozen_thresholds": {
+      "edge_max_age_days": 550,
+      "evaluation_end": "2022-12-31",
+      "evaluation_start": "2016-01-01",
+      "max_anonymous_resolved_nodes": 0,
+      "max_duplicate_pair_date_exposures": 0,
+      "max_largest_industry_edge_share_if_pit_available": 0.6,
+      "max_missing_source_provenance": 0,
+      "max_timing_violations": 0,
+      "min_consecutive_calendar_years": 3,
+      "min_industries_if_pit_available": 5,
+      "min_median_connected_stocks_across_usable_years": 200,
+      "min_year_end_active_directed_edges": 200,
+      "min_year_end_connected_stocks": 150
+    },
+    "integrity": {
+      "anonymous_resolved_nodes": 0,
+      "duplicate_pair_date_exposures": 0,
+      "edge_max_age_violations": 0,
+      "invalid_counterparty_mentions": 0,
+      "invalid_resolution_audit_names": 0,
+      "missing_listing_dates_on_edge_endpoints": 0,
+      "missing_security_master_endpoints": 0,
+      "missing_source_provenance_on_active_edges": 0,
+      "pit_industry_ambiguous_active_nodes": null,
+      "pit_industry_unclassified_active_endpoints": null,
+      "raw_duplicate_pair_date_evidence_rows": 0,
+      "resolution_status_classification_mismatches": 0,
+      "timing_violations": 0
+    },
+    "integrity_checks": {
+      "anonymous_resolved_nodes": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      },
+      "duplicate_pair_date_exposures": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      },
+      "edge_max_age_violations": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "invalid_counterparty_mentions": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "invalid_resolution_audit_names": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "missing_listing_dates_on_edge_endpoints": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "missing_security_master_endpoints": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "missing_source_provenance_on_active_edges": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      },
+      "pit_industry_ambiguous_active_nodes": {
+        "actual": null,
+        "deferred": true,
+        "operator": "==",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 0
+      },
+      "pit_industry_unclassified_active_endpoints": {
+        "actual": null,
+        "deferred": true,
+        "operator": "==",
+        "passed": null,
+        "reason": "PIT_INDUSTRY_UNAVAILABLE",
+        "threshold": 0
+      },
+      "resolution_status_classification_mismatches": {
+        "actual": 0,
+        "operator": "==",
+        "passed": true,
+        "threshold": 0
+      },
+      "timing_violations": {
+        "actual": 0,
+        "operator": "<=",
+        "passed": true,
+        "threshold": 0
+      }
+    },
+    "integrity_passed": true,
+    "outcome": "INFEASIBLE_DATA",
+    "passed": false,
+    "qualifying_year_runs": [],
+    "status": "FAIL",
+    "usable_years": []
+  },
+  "research_conclusion": "INFEASIBLE_DATA",
+  "strategy_evidence": "NOT_EVALUATED",
+  "terminal_path": "PATH_B_DATA_INFEASIBILITY"
+}
