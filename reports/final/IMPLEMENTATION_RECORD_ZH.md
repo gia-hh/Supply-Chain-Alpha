@@ -39,7 +39,8 @@
 
 1. `a868f5e chore: initialize repository`：建立空仓库，不含项目文件。
 2. `b259e1e chore: import validated V2 Path B research snapshot`：保存与正式源码哈希一致的代码、测试、规范和 canonical 报告快照。
-3. 后续独立提交仅增加事后统计诊断、经济学解释和改进路线，不改变被冻结的运行状态或结论。
+3. `f8c761d docs: explain coverage failure and future research options`：增加事后统计诊断、经济学解释与机器可读复核数据，不改变被冻结的运行状态或结论。
+4. 后续提交只允许增加本地数据零增长的 V3 决策门槛及交接材料；当前提交可由本地版本标签和 `git log` 识别，不在文件内硬编码自身哈希。
 
 原始数据约 115.66 GiB，始终不进入 Git。仓库采用显式暂存白名单和本地排除清单；正式结果保留原始数据清单及逐文件哈希作为审计依据。过期状态与 synthetic/smoke 试跑也不进入正式提交，以避免和 canonical Path B 结论混淆。
 

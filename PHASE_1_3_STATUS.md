@@ -62,6 +62,8 @@ do not alter any phase status, threshold, or canonical result:
   methods, limitations, and hashes of every frozen input;
 - `reports/final/IMPLEMENTATION_RECORD_ZH.md`: implementation scope, validation,
   provenance, and truthful Git-history notes.
+- `reports/final/V3_DECISION_MEMO_ZH.md`: a no-local-data-growth, pre-registered
+  go/no-go plan for deciding whether any successor study is worth pursuing.
 
 These artifacts use only existing formal outputs. They do not download additional
 data or read returns, signals, portfolios, or holdout results.
